@@ -10,13 +10,13 @@ public class Tests {
         List<Integer> nodes = Arrays.asList(1, 3, 4, 6, 8, 12);
         tree1.addAll(nodes);
 
-        Set<Integer> result1 = new TreeSet<>(Arrays.asList(3, 4, 6, 8));
+        SortedSet<Integer> result1 = new TreeSet<>(Arrays.asList(3, 4, 6, 8));
         SortedSet<Integer> example1 = tree1.subSet(2, 9);
 
-        Set<Integer> result2 = new TreeSet<>(Arrays.asList(1, 3, 4));
+        SortedSet<Integer> result2 = new TreeSet<>(Arrays.asList(1, 3));
         SortedSet<Integer> example2 = tree1.subSet(-2, 4);
 
-        Set<Integer> result3 = new TreeSet<>(Arrays.asList(8, 12));
+        SortedSet<Integer> result3 = new TreeSet<>(Arrays.asList(8, 12));
         SortedSet<Integer> example3 = tree1.subSet(8, 15);
 
         assertEquals(example1, result1);
@@ -30,10 +30,10 @@ public class Tests {
         List<Integer> nodes = Arrays.asList(1, 2, 4, 7, 9);
         tree2.addAll(nodes);
 
-        Set<Integer> result1 = new TreeSet<>(Arrays.asList(1, 2, 4, 7));
+        SortedSet<Integer> result1 = new TreeSet<>(Arrays.asList(1, 2, 4));
         SortedSet<Integer> example1 = tree2.headSet(7);
 
-        Set<Integer> result2 = new TreeSet<>(Arrays.asList(1, 2, 4));
+        SortedSet<Integer> result2 = new TreeSet<>(Arrays.asList(1, 2, 4));
         SortedSet<Integer> example2 = tree2.headSet(6);
 
         assertEquals(example1, result1);
@@ -46,10 +46,10 @@ public class Tests {
         List<Integer> nodes = Arrays.asList(1, 6, 7, 9, 11);
         tree3.addAll(nodes);
 
-        Set<Integer> result1 = new TreeSet<>(Arrays.asList(7, 9, 11));
+        SortedSet<Integer> result1 = new TreeSet<>(Arrays.asList(7, 9, 11));
         SortedSet<Integer> example1 = tree3.tailSet(7);
 
-        Set<Integer> result2 = new TreeSet<>(Arrays.asList(9, 11));
+        SortedSet<Integer> result2 = new TreeSet<>(Arrays.asList(9, 11));
         SortedSet<Integer> example2 = tree3.tailSet(8);
 
         assertEquals(example1, result1);

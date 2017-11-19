@@ -150,7 +150,7 @@ public class BinaryTree<T extends Comparable<T>> extends AbstractSet<T> implemen
 
     private void addNodes(Node<T> actualNode, SortedSet<T> resultSet, T fromElement, T toElement) {
         if (actualNode != null) {
-            if (fromElement.compareTo(actualNode.value) <= 0 && toElement.compareTo(actualNode.value) >= 0) {
+            if (fromElement.compareTo(actualNode.value) <= 0 && toElement.compareTo(actualNode.value) > 0) {
                 resultSet.add(actualNode.value);
             }
             if (fromElement.compareTo(actualNode.value) < 0) {
@@ -160,23 +160,20 @@ public class BinaryTree<T extends Comparable<T>> extends AbstractSet<T> implemen
                 addNodes(actualNode.right, resultSet, fromElement, toElement);
             }
         }
-        else {
-            return;
-        }
     }
 
     @NotNull
     @Override
     public SortedSet<T> headSet(T toElement) {
-        SortedSet<T> resultSet;
-        return resultSet = subSet(first(), toElement);
+        return subSet(first(), toElement);
     }
 
     @NotNull
     @Override
     public SortedSet<T> tailSet(T fromElement) {
-        SortedSet<T> resultSet;
-        return resultSet =subSet(fromElement, last());
+        SortedSet<T> resultSet = subSet(fromElement, last());
+        resultSet.add(last());
+        return resultSet;
     }
 
     @Override
